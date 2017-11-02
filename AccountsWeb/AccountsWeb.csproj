@@ -53,6 +53,7 @@
     </Reference>
     <Reference Include="BaseData, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
     <Reference Include="BaseModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="BaseWeb, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="CommonServiceLocator, Version=2.0.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.5.0.1\lib\net45\CommonServiceLocator.dll</HintPath>
     </Reference>

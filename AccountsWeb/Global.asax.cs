@@ -5,6 +5,7 @@ using System.Web.Routing;
 using System.Web.Http;
 using AccountsWeb.App_Start;
 using System.Web.Optimization;
+using BaseWeb.Helper;
 
 namespace AccountsWeb
 {
@@ -17,6 +18,7 @@ namespace AccountsWeb
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            GlobalFilters.Filters.Add(new JsonHandlerAttribute());
         }
     }
 }
