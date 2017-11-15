@@ -5,9 +5,9 @@
         .module('App')
         .controller('UserController', UserController);
 
-    UserController.$inject = ['$window', 'UserService'];
+    UserController.$inject = ['$filter', '$window','EmployeeService', 'UserService'];
 
-    function UserController($window, UserService) {
+    function UserController($filter, $window, EmployeeService, UserService) {
         var vm = this;
 
         vm.Employees = [];
@@ -15,6 +15,8 @@
 
         vm.GoToUpdatePage = GoToUpdatePage;
         vm.Initialise = Initialise;
+
+        vm.UpdateEmployee = UpdateEmployee;
 
         vm.Delete = Delete;
         
@@ -24,6 +26,7 @@
 
         function Initialise() {
             Read();
+            ReadEmployees();
         }
 
         function ReadEmployees() {
@@ -58,6 +61,10 @@
                     });
 
                 });
+        }
+
+        function UpdateEmployee(user) {
+            user.Employee = $filter('filter')(vm.Employees, { EmployeeId: user.EmployeeId })[0];
         }
 
         function Delete(userId) {

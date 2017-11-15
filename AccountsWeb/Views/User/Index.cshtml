@@ -18,16 +18,22 @@
                         <th>IsActive</th>
                         <th>EmployeeId</th>
                         <th>Username</th>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                        <th>Middlename</th>
                         <th>Roles</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="clickableRow" ng-repeat="user in model.Users" ng-click="$event.originalEvent.dropdown || model.GoToUpdatePage(user.UserId)">
+                    <tr class="clickableRow" ng-repeat="user in model.Users" ng-click="$event.originalEvent.dropdown || model.GoToUpdatePage(user.UserId)" ng-init="model.UpdateEmployee(user)">
                         <td><span ng-bind="user.UserId"></span></td>
                         <td><span ng-bind="user.IsActive"></span></td>
                         <td><span ng-bind="user.EmployeeId"></span></td>
                         <td><span ng-bind="user.Username"></span></td>
+                        <td><span ng-bind="user.Employee.FirstName"></span></td>
+                        <td><span ng-bind="user.Employee.LastName"></span></td>
+                        <td><span ng-bind="user.Employee.MiddleName"></span></td>
                         <td>
                             <ul>
                                 <li ng-repeat="userRole in user.UserRoles">
