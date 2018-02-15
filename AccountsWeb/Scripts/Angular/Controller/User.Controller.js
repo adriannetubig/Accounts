@@ -57,13 +57,13 @@
                 .then(function (response) {
                     vm.Users = response.data;
 
-                    //if (vm.EmployeeId) {
-                    //    UpdateEmployee();
-                    //}
-                    //else {
-                    //    Read();
-                    //    ReadEmployees();
-                    //}
+                    if (vm.EmployeeId) {
+                        UpdateEmployee();
+                   }
+                    else {
+                        Read();
+                        ReadEmployees();
+                    }
                     
                 })
                 .catch(function (data, status) {

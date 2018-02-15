@@ -31,11 +31,17 @@
         }
 
         function Delete(roleId) {
-            return $http({
-                method: 'DELETE',
-                url: '/Role/Delete/' + roleId,
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-            });
+
+            var ok = confirm("Are you sure to delete this role?");
+
+            if (ok == true) {
+
+                return $http({
+                    method: 'DELETE',
+                    url: '/Role/Delete/' + roleId,
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+                });
+            }
         }
     }
 })();

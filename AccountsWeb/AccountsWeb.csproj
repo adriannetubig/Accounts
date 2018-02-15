@@ -339,6 +339,7 @@
     <Content Include="bower_components\pnotify\dist\pnotify.nonblock.js" />
     <Content Include="bower_components\pnotify\libtests\browserify\index.js" />
     <Content Include="bower_components\pnotify\make.js" />
+    <Content Include="Content\assets\img\accountslogo.png" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\Angular\app.module.js" />
