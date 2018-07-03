@@ -7,10 +7,12 @@ namespace AccountsContext.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(Context context)
         {
+
         }
     }
 }

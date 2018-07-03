@@ -10,29 +10,35 @@
     function UserController($filter, $window, EmployeeService, UserService) {
         var vm = this;
 
-        vm.Employees = [];
+        vm.EmployeeId;
+        vm.Employees = [];  
         vm.Users = [];
 
         vm.GoToUpdatePage = GoToUpdatePage;
         vm.Initialise = Initialise;
-
         vm.UpdateEmployee = UpdateEmployee;
-
         vm.Delete = Delete;
         
         function GoToUpdatePage(userId) {
             $window.location.href = '../User/Update/' + userId;
-        } 
-
+        }
         function Initialise() {
             Read();
             ReadEmployees();
         }
-
         function ReadEmployees() {
             EmployeeService.Read()
                 .then(function (response) {
                     vm.Employees = response.data;
+
+                    if (vm.EmployeeId) {
+                        UpdateEmployee();
+                    }
+                    else {
+                        Read();
+                        ReadEmployees();
+                    }
+                    
                 })
                 .catch(function (data, status) {
                     new PNotify({
@@ -50,6 +56,15 @@
             UserService.Read()
                 .then(function (response) {
                     vm.Users = response.data;
+
+                    if (vm.EmployeeId) {
+                        UpdateEmployee();
+                   }
+                    else {
+                        Read();
+                        ReadEmployees();
+                    }
+                    
                 })
                 .catch(function (data, status) {
                     new PNotify({
@@ -62,9 +77,10 @@
 
                 });
         }
-
         function UpdateEmployee(user) {
-            user.Employee = $filter('filter')(vm.Employees, { EmployeeId: user.EmployeeId })[0];
+            angular.forEach(vm.Employees, function (employee) {
+               user.Employee = $filter('filter')(vm.Employees, { EmployeeId: user.EmployeeId })[0];
+            });
         }
 
         function Delete(userId) {

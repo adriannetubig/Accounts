@@ -1,0 +1,18 @@
+﻿@using AccountsModel;
+@model Role
+
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update</h2>
+
+<div class="row">
+    <div class="col-sm-12">
+        <form action="~/Role/Update" method="post">
+            @{
+                Html.RenderPartial("_Role", Model);
+            }
+        </form>
+    </div>
+</div>

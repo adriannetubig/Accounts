@@ -340,6 +340,7 @@
     <Content Include="bower_components\pnotify\dist\pnotify.nonblock.js" />
     <Content Include="bower_components\pnotify\libtests\browserify\index.js" />
     <Content Include="bower_components\pnotify\make.js" />
+    <Content Include="Content\assets\img\accountslogo.png" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\Angular\app.module.js" />
@@ -563,6 +564,10 @@
     <Content Include="Views\User\Update.cshtml" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Role\_Role.cshtml" />
+    <Content Include="Views\Role\Create.cshtml" />
+    <Content Include="Views\Role\Index.cshtml" />
+    <Content Include="Views\Role\Update.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

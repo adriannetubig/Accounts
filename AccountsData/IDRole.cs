@@ -6,5 +6,8 @@ namespace AccountsData
 {
     public interface IDRole : IDBase
     {
+        #region Read
+        List<ERole> Read();
+        #endregion
     }
 }

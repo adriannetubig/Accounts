@@ -22,11 +22,17 @@
         }
 
         function Delete(userId) {
-            return $http({
-                method: 'DELETE',
-                url: '/User/Delete/' + userId,
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-            });
+
+            var ok = confirm("Are you sure to delete this item?");
+
+            if (ok == true) {
+
+                return $http({
+                    method: 'DELETE',
+                    url: '/User/Delete/' + userId,
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+                });
+            }
         }
     }
 })();

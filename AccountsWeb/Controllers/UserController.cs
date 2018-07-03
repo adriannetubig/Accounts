@@ -52,7 +52,6 @@ namespace AccountsWeb.Controllers
         {
             return View(_iFUser.Read(id));
         }
-
         [HttpPost]
         public ActionResult Update(User user)
         {

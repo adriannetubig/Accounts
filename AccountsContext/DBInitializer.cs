@@ -14,7 +14,8 @@ namespace AccountsContext
             context.Roles.Add(
                 new ERole
                 {
-                    Name = "AccountAdministrator"
+                    Name = "AccountAdministrator",
+                    Description = "Survey - Pay - AndersonCRM - AndersonForms - HROnline - AIMS - Accounts - AccountsExternal - AndersonWorklogs - ELogbook"
                 });
             base.Seed(context);
         }
