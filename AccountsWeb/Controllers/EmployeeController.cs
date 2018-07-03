@@ -20,7 +20,7 @@ namespace AccountsWeb.Controllers
         [HttpPost]
         public JsonResult Read()
         {
-            return Json(_iFEmployee.ReadAndersonPhEmployees());
+            return Json(_iFEmployee.Read());
         }
         #endregion
 

@@ -16,7 +16,6 @@
 
         vm.GoToUpdatePage = GoToUpdatePage;
         vm.Initialise = Initialise;
-        vm.UpdateEmployee = UpdateEmployee;
         vm.Delete = Delete;
         
         function GoToUpdatePage(userId) {
@@ -24,46 +23,31 @@
         }
         function Initialise() {
             Read();
-            ReadEmployees();
-        }
-        function ReadEmployees() {
-            EmployeeService.Read()
-                .then(function (response) {
-                    vm.Employees = response.data;
-
-                    if (vm.EmployeeId) {
-                        UpdateEmployee();
-                    }
-                    else {
-                        Read();
-                        ReadEmployees();
-                    }
-                    
-                })
-                .catch(function (data, status) {
-                    new PNotify({
-                        title: status,
-                        text: data,
-                        type: 'error',
-                        hide: true,
-                        addclass: "stack-bottomright"
-                    });
-
-                });
         }
 
         function Read() {
             UserService.Read()
                 .then(function (response) {
                     vm.Users = response.data;
+                    ReadEmployees();
+                })
+                .catch(function (data, status) {
+                    new PNotify({
+                        title: status,
+                        text: data,
+                        type: 'error',
+                        hide: true,
+                        addclass: "stack-bottomright"
+                    });
 
-                    if (vm.EmployeeId) {
-                        UpdateEmployee();
-                   }
-                    else {
-                        Read();
-                        ReadEmployees();
-                    }
+                });
+        }
+
+        function ReadEmployees() {
+            EmployeeService.Read()
+                .then(function (response) {
+                    vm.Employees = response.data;
+                    UpdateEmployee();
                     
                 })
                 .catch(function (data, status) {
@@ -77,9 +61,10 @@
 
                 });
         }
-        function UpdateEmployee(user) {
-            angular.forEach(vm.Employees, function (employee) {
-               user.Employee = $filter('filter')(vm.Employees, { EmployeeId: user.EmployeeId })[0];
+
+        function UpdateEmployee() {
+            angular.forEach(vm.Users, function (user) {
+                user.Employee = $filter('filter')(vm.Employees, { EmployeeId: user.EmployeeId })[0];
             });
         }
 
